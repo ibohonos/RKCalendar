@@ -8,13 +8,18 @@
 
 import SwiftUI
 
-struct RKViewController: View {
+public struct RKViewController: View {
     
     @Binding var isPresented: Bool
     
     @ObservedObject var rkManager: RKManager
     
-    var body: some View {
+    public init (isPresented: Bool, rkManager: RKManager) {
+        self.isPresented = isPresented
+        self.rkManager = rkManager
+    }
+    
+    public var body: some View {
         Group {
             RKWeekdayHeader(rkManager: self.rkManager)
             Divider()
