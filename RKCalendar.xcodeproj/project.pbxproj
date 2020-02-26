@@ -24,6 +24,7 @@
 		019D282422DBCCC00001C990 /* demo-app-dark-mode-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 019D282022DBCCC00001C990 /* demo-app-dark-mode-1.png */; };
 		019D282922DBCD2E0001C990 /* demo-app-light-mode-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 019D282722DBCD2E0001C990 /* demo-app-light-mode-1.png */; };
 		019D282A22DBCD2E0001C990 /* demo-app-light-mode-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 019D282822DBCD2E0001C990 /* demo-app-light-mode-2.png */; };
+		7A5A03172406B28C0096F920 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7A5A03192406B28C0096F920 /* Localizable.strings */; };
 		C72D24C62317A99D00A37CC1 /* RKColorSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72D24C52317A99D00A37CC1 /* RKColorSettings.swift */; };
 		C7A3D61B23126E230065D6FF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C7A3D61A23126E230065D6FF /* README.md */; };
 /* End PBXBuildFile section */
@@ -48,6 +49,11 @@
 		019D282022DBCCC00001C990 /* demo-app-dark-mode-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "demo-app-dark-mode-1.png"; sourceTree = "<group>"; };
 		019D282722DBCD2E0001C990 /* demo-app-light-mode-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "demo-app-light-mode-1.png"; sourceTree = "<group>"; };
 		019D282822DBCD2E0001C990 /* demo-app-light-mode-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "demo-app-light-mode-2.png"; sourceTree = "<group>"; };
+		7A5A03122406B2260096F920 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		7A5A03132406B2300096F920 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		7A5A03182406B28C0096F920 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7A5A03242406B38F0096F920 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7A5A03252406B3900096F920 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C72D24C52317A99D00A37CC1 /* RKColorSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RKColorSettings.swift; sourceTree = "<group>"; };
 		C7A3D61A23126E230065D6FF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,6 +114,7 @@
 		0112FD6822DB8DDC00BB8F94 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				7A5A03142406B25A0096F920 /* Localization */,
 				0112FD6922DB8EA800BB8F94 /* RKDate.swift */,
 				0112FD6B22DB901B00BB8F94 /* RKCell.swift */,
 				0112FD6D22DB912B00BB8F94 /* RKWeekdayHeader.swift */,
@@ -128,6 +135,14 @@
 				019D282822DBCD2E0001C990 /* demo-app-light-mode-2.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		7A5A03142406B25A0096F920 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				7A5A03192406B28C0096F920 /* Localizable.strings */,
+			);
+			path = Localization;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,6 +187,8 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
+				uk,
 			);
 			mainGroup = 0112FD4822DB8D6800BB8F94;
 			productRefGroup = 0112FD5222DB8D6800BB8F94 /* Products */;
@@ -193,6 +210,7 @@
 				0112FD5E22DB8D6A00BB8F94 /* Preview Assets.xcassets in Resources */,
 				019D282422DBCCC00001C990 /* demo-app-dark-mode-1.png in Resources */,
 				019D282322DBCCC00001C990 /* demo-app-dark-mode-2.png in Resources */,
+				7A5A03172406B28C0096F920 /* Localizable.strings in Resources */,
 				019D282A22DBCD2E0001C990 /* demo-app-light-mode-2.png in Resources */,
 				C7A3D61B23126E230065D6FF /* README.md in Resources */,
 				0112FD5B22DB8D6A00BB8F94 /* Assets.xcassets in Resources */,
@@ -227,8 +245,20 @@
 			isa = PBXVariantGroup;
 			children = (
 				0112FD6022DB8D6A00BB8F94 /* Base */,
+				7A5A03122406B2260096F920 /* ru */,
+				7A5A03132406B2300096F920 /* uk */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		7A5A03192406B28C0096F920 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7A5A03182406B28C0096F920 /* en */,
+				7A5A03242406B38F0096F920 /* ru */,
+				7A5A03252406B3900096F920 /* uk */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

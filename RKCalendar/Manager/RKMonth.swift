@@ -83,8 +83,9 @@ struct RKMonth: View {
                 if self.isStartDateAfterEndDate() {
                     self.rkManager.endDate = date
                     self.rkManager.startDate = date
+                } else {
+                    self.rkManager.mode = 1
                 }
-                self.rkManager.mode = 1
             case 3:
                 if self.rkManager.selectedDatesContains(date: date) {
                     if let ndx = self.rkManager.selectedDatesFindIndex(date: date) {
