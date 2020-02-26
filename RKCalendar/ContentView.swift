@@ -62,7 +62,7 @@ struct ContentView : View {
                 RKViewController(isPresented: self.$deselectedIsPresented, rkManager: self.rkManager4)})
             datesView(dates: self.rkManager4.disabledDates)
             
-        }.onAppear(perform: startUp)
+        }.onAppear { self.startUp() }
             .navigationViewStyle(StackNavigationViewStyle())
     }
     
@@ -79,6 +79,9 @@ struct ContentView : View {
     func startUp() {
         
         // example of pre-setting selected dates
+        rkManager2.startDate = Date().addingTimeInterval(60 * 60 * 24 * 2)
+        rkManager2.endDate = Date().addingTimeInterval(60 * 60 * 24 * 2)
+        
         let testOnDates = [Date().addingTimeInterval(60*60*24), Date().addingTimeInterval(60*60*24*2)]
         rkManager3.selectedDates.append(contentsOf: testOnDates)
         

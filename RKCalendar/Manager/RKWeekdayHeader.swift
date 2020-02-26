@@ -21,6 +21,7 @@ struct RKWeekdayHeader : View {
                     .foregroundColor(self.rkManager.colors.weekdayHeaderColor)
             }
         }.background(rkManager.colors.weekdayHeaderBackColor)
+        .padding()
     }
     
     func getWeekdayHeaders(calendar: Calendar) -> [String] {

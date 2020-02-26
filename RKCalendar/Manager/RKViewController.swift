@@ -10,12 +10,12 @@ import SwiftUI
 
 public struct RKViewController: View {
     
-    var isPresented: Binding<Bool>
+    @Binding var isPresented: Bool
     
     @ObservedObject var rkManager: RKManager
     
     public init (isPresented: Binding<Bool>, rkManager: RKManager) {
-        self.isPresented = isPresented
+        self._isPresented = isPresented
         self.rkManager = rkManager
     }
     
@@ -24,10 +24,30 @@ public struct RKViewController: View {
             RKWeekdayHeader(rkManager: self.rkManager)
             Divider()
             List {
-                ForEach(0..<numberOfMonths()) { index in
-                    RKMonth(isPresented: self.isPresented, rkManager: self.rkManager, monthOffset: index)
+                ForEach(0 ..< numberOfMonths()) { index in
+                    RKMonth(isPresented: self.$isPresented, rkManager: self.rkManager, monthOffset: index)
                 }
                 Divider()
+            }
+            if rkManager.mode == 1 || rkManager.mode == 2 {
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        if self.rkManager.mode == 2 {
+                            self.rkManager.mode = 1
+                        }
+
+                        self.isPresented.toggle()
+                    }) {
+                        Text("Save")
+                    }
+                    .disabled(rkManager.startDate == nil || rkManager.endDate == nil)
+                    .foregroundColor((rkManager.startDate == nil || rkManager.endDate == nil) ? rkManager.colors.disabledColor : rkManager.colors.betweenStartAndEndColor)
+                    .padding(.vertical, 10)
+                    .padding(.horizontal, 30)
+                    .background((rkManager.startDate == nil || rkManager.endDate == nil) ? rkManager.colors.disabledBackColor : rkManager.colors.betweenStartAndEndBackColor)
+                }
+                .padding()
             }
         }
     }
@@ -53,6 +73,8 @@ struct RKViewController_Previews : PreviewProvider {
             RKViewController(isPresented: .constant(false), rkManager: RKManager(calendar: Calendar.current, minimumDate: Date(), maximumDate: Date().addingTimeInterval(60*60*24*32), mode: 0))
                 .environment(\.colorScheme, .dark)
                 .environment(\.layoutDirection, .rightToLeft)
+            
+            RKViewController(isPresented: .constant(false), rkManager: RKManager(calendar: Calendar.current, minimumDate: Date(), maximumDate: Date().addingTimeInterval(60*60*24*365), mode: 1))
         }
     }
 }

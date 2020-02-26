@@ -74,16 +74,17 @@ struct RKMonth: View {
                 self.isPresented = false
             case 1:
                 self.rkManager.startDate = date
-                self.rkManager.endDate = nil
+                if rkManager.endDate == nil || self.isStartDateAfterEndDate() {
+                    self.rkManager.endDate = date
+                }
                 self.rkManager.mode = 2
             case 2:
                 self.rkManager.endDate = date
                 if self.isStartDateAfterEndDate() {
-                    self.rkManager.endDate = nil
-                    self.rkManager.startDate = nil
+                    self.rkManager.endDate = date
+                    self.rkManager.startDate = date
                 }
                 self.rkManager.mode = 1
-                self.isPresented = false
             case 3:
                 if self.rkManager.selectedDatesContains(date: date) {
                     if let ndx = self.rkManager.selectedDatesFindIndex(date: date) {
