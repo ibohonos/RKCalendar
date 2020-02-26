@@ -17,12 +17,16 @@ public class RKColorSettings : ObservableObject {
     @Published public var selectedColor: Color = Color.white
     @Published public var disabledColor: Color = Color.gray
     @Published public var betweenStartAndEndColor: Color = Color.white
+    @Published public var disabledButtonColor: Color = .white
+    @Published public var buttonColor: Color = .white
     // background colors
     @Published public var textBackColor: Color = Color.clear
     @Published public var todayBackColor: Color = Color.gray
     @Published public var selectedBackColor: Color = Color.red
     @Published public var disabledBackColor: Color = Color.clear
     @Published public var betweenStartAndEndBackColor: Color = Color.blue
+    @Published public var disabledButtonBackColor: Color = .secondary
+    @Published public var buttonBackColor: Color = .blue
     // headers foreground colors
     @Published public var weekdayHeaderColor: Color = Color.primary
     @Published public var monthHeaderColor: Color = Color.primary

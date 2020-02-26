@@ -42,10 +42,10 @@ public struct RKViewController: View {
                         Text("Save")
                     }
                     .disabled(rkManager.startDate == nil || rkManager.endDate == nil)
-                    .foregroundColor((rkManager.startDate == nil || rkManager.endDate == nil) ? rkManager.colors.disabledColor : rkManager.colors.betweenStartAndEndColor)
+                    .foregroundColor((rkManager.startDate == nil || rkManager.endDate == nil) ? rkManager.colors.disabledButtonColor : rkManager.colors.buttonColor)
                     .padding(.vertical, 10)
                     .padding(.horizontal, 30)
-                    .background((rkManager.startDate == nil || rkManager.endDate == nil) ? rkManager.colors.disabledBackColor : rkManager.colors.betweenStartAndEndBackColor)
+                    .background((rkManager.startDate == nil || rkManager.endDate == nil) ? rkManager.colors.disabledButtonBackColor : rkManager.colors.buttonBackColor)
                 }
                 .padding()
             }
