@@ -74,9 +74,7 @@ struct RKMonth: View {
                 self.isPresented = false
             case 1:
                 self.rkManager.startDate = date
-                if rkManager.endDate == nil || self.isStartDateAfterEndDate() {
-                    self.rkManager.endDate = date
-                }
+                self.rkManager.endDate = date
                 self.rkManager.mode = 2
             case 2:
                 self.rkManager.endDate = date
