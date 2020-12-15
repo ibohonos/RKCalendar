@@ -14,19 +14,24 @@ struct RKWeekdayHeader : View {
      
     var body: some View {
         HStack(alignment: .center) {
-            ForEach(self.getWeekdayHeaders(calendar: self.rkManager.calendar), id: \.self) { weekday in
+            ForEach(self.getWeekdayHeaders(calendar: self.rkManager.calendar, locale: self.rkManager.locale), id: \.self) { weekday in
                 Text(weekday)
                     .font(.system(size: 20))
                     .frame(minWidth: 0, maxWidth: .infinity)
                     .foregroundColor(self.rkManager.colors.weekdayHeaderColor)
             }
-        }.background(rkManager.colors.weekdayHeaderBackColor)
+        }
+        .background(rkManager.colors.weekdayHeaderBackColor)
         .padding()
     }
     
-    func getWeekdayHeaders(calendar: Calendar) -> [String] {
+    func getWeekdayHeaders(calendar: Calendar, locale: String = "") -> [String] {
         
         let formatter = DateFormatter()
+        
+        if locale != "" {
+            formatter.locale = Locale(identifier: locale)
+        }
         
         var weekdaySymbols = formatter.shortStandaloneWeekdaySymbols
         let weekdaySymbolsCount = weekdaySymbols?.count ?? 0

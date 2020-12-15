@@ -18,17 +18,19 @@ public class RKManager : ObservableObject {
     @Published public var selectedDate: Date! = nil
     @Published public var startDate: Date! = nil
     @Published public var endDate: Date! = nil
+    @Published public var locale: String = ""
     
     @Published public var mode: Int = 0
     
     public var colors = RKColorSettings()
   
-    public init(calendar: Calendar, minimumDate: Date, maximumDate: Date, selectedDates: [Date] = [Date](), mode: Int) {
+    public init(calendar: Calendar, minimumDate: Date, maximumDate: Date, selectedDates: [Date] = [Date](), mode: Int, locale: String = "") {
         self.calendar = calendar
         self.minimumDate = minimumDate
         self.maximumDate = maximumDate
         self.selectedDates = selectedDates
         self.mode = mode
+        self.locale = locale
     }
     
     public func selectedDatesContains(date: Date) -> Bool {

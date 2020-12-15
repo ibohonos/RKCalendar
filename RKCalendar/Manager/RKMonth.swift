@@ -114,6 +114,11 @@ struct RKMonth: View {
     
     func getMonthHeader() -> String {
         let headerDateFormatter = DateFormatter()
+        
+        if rkManager.locale != "" {
+            headerDateFormatter.locale = Locale(identifier: rkManager.locale)
+        }
+        
         headerDateFormatter.calendar = rkManager.calendar
         headerDateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "yyyy LLLL", options: 0, locale: rkManager.calendar.locale)
         
